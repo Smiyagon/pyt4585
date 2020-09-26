@@ -1,0 +1,20 @@
+{
+    "personeller" : [
+        {
+            "Id" : 1,
+            "indexNo" : 0,
+            "firstName" : "Tarık",
+            "lastName" : "Kotan",
+            "mail" : "tarik.kotan@bilgeadam.com",
+            "phone" : "+905340886128"
+        },
+        {
+            "Id" : 2,
+            "indexNo" : 1,
+            "firstName" : "Murat",
+            "lastName" : "Vuranok",
+            "mail" : "murat.vuranok@bilgeadam.com",
+            "phone" : "+905456158234"
+        }
+    ]
+}
