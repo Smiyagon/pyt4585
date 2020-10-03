@@ -1,3 +1,4 @@
+
 kisiler = [
     {
         "İndex No": 0,
@@ -26,8 +27,17 @@ kisiler = [
         "Soyisim" : "keser",
         "Mail Adresi":"devrim.keser@hotmail.com",
         "Telefon Numarası" : "02164547878"
-    },
+    }
 ]
+
+def arama():
+    name = str(input("Lütfen aramak istediğiniz kişinin bir bilgisini giriniz :  ")).lower()
+    if name in str(kisiler):
+        print("Kişi aranıyor...")
+    else:
+        print("Böyle bir kişi listeye kayıtlı değil lütfen kişiyi kaydediniz.")
+            
+            
 
 def ekleme():
     index = len(kisiler) - 1
@@ -100,10 +110,8 @@ def kayitSilme():
         kayitSilme()
 
 def kayitListesi():
-    i = 0
-    while i < len(kisiler):
-        print(kisiler[i])
-        i += 1
+    for kisi in kisiler:
+        print(kisi)
 
 
 def guncelleme():
@@ -192,7 +200,7 @@ def anaekran():
         kayitListesi()
         anaEkranDonus()
     elif islem == 5 :
-        pass
+        arama()
     elif islem == 6:
         print("********HOŞÇAKALIN********")
         exit
