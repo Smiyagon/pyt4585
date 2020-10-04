@@ -33,7 +33,7 @@ kisiler = [
 def arama():
     name = str(input("Lütfen aramak istediğiniz kişinin bir bilgisini giriniz :  ")).lower()
     if name in str(kisiler):
-        print("Kişi aranıyor...")
+        print(f"{name} bilgisiyle kayıtlı kişi aranıyor...")
     else:
         print("Böyle bir kişi listeye kayıtlı değil lütfen kişiyi kaydediniz.")
             
@@ -97,11 +97,15 @@ def kayitSilmeEkranDonus():
         kayitSilmeEkranDonus()
 
 def kayitSilme():
-    deger = int(input("Lütfen silinecek kişinin adını giriniz: "))
+    kisilerIndex()
+    deger = int(input("Lütfen silinecek kişinin index numarasını giriniz: "))
     sonuc = input("Bu kişiyi silmek istediğinize emin misiniz?(y/n):").lower()
     if sonuc == "y":
-        kisiler[deger].remove("İsim")
+        for kisi in kisiler:
+            if deger in kisi:
+                kisi[deger].remove()
         print("Kişi silindi")
+        anaEkranDonus()
     elif sonuc == "n":
         print("Çıkış yapıldı")
         exit
@@ -112,6 +116,13 @@ def kayitSilme():
 def kayitListesi():
     for kisi in kisiler:
         print(kisi)
+
+def kisilerIndex():
+    for kisi in kisiler:
+        index =  kisi["İndex No"]
+        isim = kisi["İsim"]
+        soyisim = kisi["Soyisim"]
+        print(f"Kişi adı ve index numarası : {isim.upper()} {soyisim.upper()} - ({index})")
 
 
 def guncelleme():
@@ -128,7 +139,8 @@ def guncelleme():
     
 
     if deger == 1:
-        guncellenecekIndex  = int(input("Kişinin index numarasını giriniz: "))
+        kisilerIndex()
+        guncellenecekIndex  = int(input("Düzenlenecek kişinin index numarasını giriniz: "))
         guncellenecekKey    = "İsim"
 
         oldName = kisiler[guncellenecekIndex][guncellenecekKey]
@@ -139,7 +151,8 @@ def guncelleme():
         
 
     elif deger == 2:
-        guncellenecekIndex  = int(input("Kişinin index numarasını giriniz: "))
+        kisilerIndex()
+        guncellenecekIndex  = int(input("Düzenlenecek kişinin index numarasını giriniz: "))
         guncellenecekKey    = "Soyisim"
 
         oldName = kisiler[guncellenecekIndex][guncellenecekKey]
@@ -149,7 +162,8 @@ def guncelleme():
         guncellemeEkrandonus()
 
     elif deger == 3:
-        guncellenecekIndex  = int(input("Kişinin index numarasını giriniz: "))
+        kisilerIndex()
+        guncellenecekIndex  = int(input("Düzenlenecek kişinin index numarasını giriniz: "))
         guncellenecekKey    = "Mail Adresi"
 
         oldName = kisiler[guncellenecekIndex][guncellenecekKey]
@@ -158,7 +172,8 @@ def guncelleme():
         print("Kişinin yeni mail adresi :", kisiler[guncellenecekIndex]["Mail Adresi"],"Olarak Güncellenmiştir")
         guncellemeEkrandonus()    
     elif deger == 4:
-        guncellenecekIndex  = int(input("Kişinin index numarasını giriniz: "))
+        kisilerIndex()
+        guncellenecekIndex  = int(input("Düzenlenecek kişinin index numarasını giriniz: "))
         guncellenecekKey    = "Telefon Numarası"
 
         oldName = kisiler[guncellenecekIndex][guncellenecekKey]
@@ -209,3 +224,5 @@ def anaekran():
         anaekran()
 
 anaekran()
+
+
