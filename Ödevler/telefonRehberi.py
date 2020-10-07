@@ -29,6 +29,7 @@ kisiler = [
         "Telefon Numarası" : "02164547878"
     }
 ]
+kisiler = list(kisiler)
 
 def arama():
     name = str(input("Lütfen aramak istediğiniz kişinin bir bilgisini giriniz :  ")).lower()
@@ -98,20 +99,11 @@ def kayitSilmeEkranDonus():
 
 def kayitSilme():
     kisilerIndex()
-    deger = int(input("Lütfen silinecek kişinin index numarasını giriniz: "))
-    sonuc = input("Bu kişiyi silmek istediğinize emin misiniz?(y/n):").lower()
-    if sonuc == "y":
-        for kisi in kisiler:
-            if deger in kisi:
-                kisi[deger].remove()
-        print("Kişi silindi")
-        anaEkranDonus()
-    elif sonuc == "n":
-        print("Çıkış yapıldı")
-        exit
-    else:
-        print("Lütfen düzgün bir değer giriniz")
-        kayitSilme()
+    index = int(input("Silmek İstediğiniz Kişinin index numarasını Giriniz! : "))
+    kisiler.remove(kisiler[index])
+    print("Kişi Rehberden Silindi!")
+    kayitSilmeEkranDonus()
+    anaEkranDonus()
 
 def kayitListesi():
     for kisi in kisiler:
