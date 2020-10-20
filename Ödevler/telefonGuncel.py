@@ -26,10 +26,19 @@ class  Kisiler():
         pass
 
     def kayitGosterme(self):
-        pass
+        o = open("kisiler.txt","r")
+        for i in o:
+            print(i)
+        o.close()
 
     def arama(self):
         pass
 
+isim = input("Kişinin adını giriniz : ")
+soyad = input("Kişinin soyadını giriniz : ")
+mail = input("Kişinin mail adresini giriniz : ")
+telefon = input("Kişinin telefon numarasını giriniz : ")
+
 kisiler = Kisiler("","","","")
-kisiler.kayitEkle("Ahmet","semsi","ahmet.semsi@hotmail.com","02165458545")
+kisiler.kayitEkle(isim,soyad,mail,telefon)
+kisiler.kayitGosterme()
