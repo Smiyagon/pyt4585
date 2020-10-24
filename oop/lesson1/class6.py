@@ -6,6 +6,8 @@ class Clear:
     def ClearStirng(self):
         arg = self.lower().replace(" ","").replace("ş","s")
         return arg
+
+
 class MathLibrary:
     def toplam(self,*arg):
         toplam = 0
