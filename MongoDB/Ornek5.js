@@ -31,3 +31,12 @@ db.Products.find({"UnitPrice":{$gt:100}}).pretty().sort({"UnitPrice" :1})
 // greater than equal
 
 db.Products.find({"UnitPrice":{$gte:60}}).pretty().sort({"UnitPrice" :1})
+
+
+// and ve or kullanımı 
+
+
+// and kullanımı
+// Fiyatı 30 dolardan büyük ,stok adedi 100 den küçük olan ürünlerin listelenmesi:
+
+db.Products.find({$and:[{"UnitPrice":{$gte: 30}},{"UnitsInStock":{$lte : 100}}]}).pretty().sort({"UnitPrice" :1})
